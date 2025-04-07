@@ -1,0 +1,276 @@
+/* 🔹 Reseteo global: Elimina márgenes y padding predeterminados del navegador 
+   y establece el box-sizing en "inherit" para heredar el valor de HTML */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* 🔹 Configuración base del documento */
+html {
+    font-size: 62.5%; /* Hace que 1rem = 10px (útil para cálculos de tamaños) */
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño total de los elementos */
+}
+
+/* 📱 Ajuste de tamaño de fuente para dispositivos móviles (máximo 720px) */
+@media only screen and (max-width: 45em) {
+    html {
+        font-size: 56.25%; /* 1rem = 9px */
+    }
+}
+
+/* 📱 Ajuste de tamaño de fuente para móviles pequeños (máximo 440px) */
+@media only screen and (max-width: 27.5em) {
+    html {
+        font-size: 50%; /* 1rem = 8px */
+    }
+}
+
+/* 🔹 Configuración del cuerpo del documento */
+body {
+    font-family: "Poppins", sans-serif; /* Fuente principal */
+    font-size: 1.5rem; /* Aproximadamente 22px-24px */
+    font-weight: 400;
+    line-height: 1.6;
+    color: #4c4e61; /* Color de texto */
+    background-color: #ffffff; /* Color de fondo */
+}
+
+
+/* 🔹 Contenedor principal de la página div class="site-container" */
+.site-container {
+    margin: 10vh auto; /* Centra el contenido verticalmente con 10% del viewport */
+    max-width: 120rem; /* Ancho máximo 1920px */
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem; /* Espacio entre elementos internos(Con <main> Feature) 76PX Aprox */
+}
+
+/* 📱 Ajuste de margen para pantallas más pequeñas (máximo 650px) */
+@media only screen and (max-width: 40.6em) {
+    .site-container {
+        margin: 6.4rem auto;
+    }
+}
+
+/* 🔹 Estilos para el título principal */
+.heading-primary {
+    font-size: 3.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* 📱 Ajuste del tamaño del título principal en pantallas más pequeñas 440px Aprox */
+@media only screen and (max-width: 27.5em) {
+    .heading-primary {
+        font-size: 3.2rem;
+    }
+}
+/* 376 440px Aprox */
+@media only screen and (max-width: 23.5em) {
+    .heading-primary {
+        font-size: 3rem;
+    }
+}
+
+/* 🔹 Estilos para el subtítulo */
+.heading-secondary {
+    font-size: 3.6rem;
+    font-weight: 200;
+    line-height: 1.2;
+}
+
+/* 📱 Ajuste del tamaño del subtítulo en pantallas más pequeñas */
+@media only screen and (max-width: 27.5em) {
+    .heading-secondary {
+        font-size: 3.2rem;
+    }
+}
+@media only screen and (max-width: 23.5em) {
+    .heading-secondary {
+        font-size: 3rem;
+    }
+}
+
+/* 🔹 Contenedor principal de las características main class="feature"  */
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5.4rem; /* Espaciado entre elementos */
+}
+
+/* 📱 Ajuste de padding en pantallas medianas (máximo 1000px) */
+@media only screen and (max-width: 62.5em) {
+    .feature {
+        padding: 0 1.2rem;
+    }
+}
+
+/* 📱 Ajuste de padding en móviles pequeños (máximo 440px) */
+@media only screen and (max-width: 27.5em) {
+    .feature {
+        padding: 0 3.2rem;
+    }
+}
+
+/* 🔹 Contenedor del encabezado dentro de .feature */
+.feature__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    max-width: 50rem;
+}
+
+/* 📱 Ajuste del espaciado en móviles pequeños */
+@media only screen and (max-width: 27.5em) {
+    .feature__header {
+        gap: 2.4rem;
+    }
+}
+
+/* 🔹 Texto descriptivo dentro de .feature */
+.feature__description {
+    text-align: center;
+}
+
+/* 📱 Ajuste de tamaño de fuente para mejor legibilidad en pantallas pequeñas */
+@media only screen and (max-width: 27.5em) {
+    .feature__description {
+        font-size: 1.8rem;
+    }
+}
+
+/* ******************* 🔹 Diseño de tarjetas con CSS Grid************************** */
+.feature__cards {
+    display: grid; /* Se define sistema de grillas*/
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, minmax(20rem, 1fr)); /* 3 columnas flexibles */
+    column-gap: 3.2rem;
+    row-gap: 3.6rem;
+}
+
+/* 📱 Ajuste para tabletas (máximo 900px): 2 columnas en vez de 3 */
+@media only screen and (max-width: 56.25em) {
+    .feature__cards {
+        grid-template-columns: repeat(2, minmax(20rem, 1fr));
+    }
+}
+
+/* 📱 Ajuste para móviles (máximo 650px): 1 sola columna */
+@media only screen and (max-width: 40.6em) {
+    .feature__cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 🔹*************************  Estilos de las tarjetas GRID************************* */
+.feature__card {
+    padding: 3.2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 2rem rgba(76, 78, 97, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+/* 🔹 Tarjeta Cyan (posición especial en la grilla) */
+.feature__card--cyan {
+    grid-column: 1/2;
+    grid-row: 1/3; /*La deja en la mitad */
+    border-top: 0.5rem solid #45d3d3;
+}
+
+/* 📱 Ajuste para tabletas: Se deshace la posición fija en la grilla */
+@media only screen and (max-width: 56.25em) {
+    .feature__card--cyan {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* 🔹 Tarjeta Roja */
+.feature__card--red {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-top: 0.5rem solid #ea5353;
+}
+
+/* 📱 Ajuste para tabletas */
+@media only screen and (max-width: 56.25em) {
+    .feature__card--red {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* 🔹 Tarjeta Naranja */
+.feature__card--orange {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border-top: 0.5rem solid #fcaf4a;
+}
+
+/* 📱 Ajuste para tabletas */
+@media only screen and (max-width: 56.25em) {
+    .feature__card--orange {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* 🔹 Tarjeta Azul */
+.feature__card--blue {
+    grid-column: 3/4;
+    grid-row: 1/3; /*La deja en la mitad */
+    border-top: 0.5rem solid #549ef2;
+}
+
+/* 📱 Ajuste para tabletas */
+@media only screen and (max-width: 56.25em) {
+    .feature__card--blue {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* 🔹 Título dentro de cada tarjeta */
+.feature__title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* 🔹 Texto descriptivo dentro de cada tarjeta */
+.feature__text {
+    color: #697077;
+}
+
+/* 🔹 Icono dentro de cada tarjeta */
+.feature__icon {
+    padding: 2.4rem 1rem;
+    align-self: end;
+}
+
+/* 🔹 Estilos del footer */
+.attribution {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #697077;
+}
+
+/* 🔹 Estilos de los enlaces dentro del footer */
+.attribution a {
+    color: #4c4e61;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* 🎨 Cambio de color al pasar el mouse */
+.attribution a:hover {
+    color: #fcaf4a;
+}
